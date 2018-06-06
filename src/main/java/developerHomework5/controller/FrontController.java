@@ -17,6 +17,7 @@ public class FrontController implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
         requestMap = new HashMap<>();
         requestMap.put("/itIndustry/".toLowerCase(), new MainPageController());
+        requestMap.put("/itIndustry/action".toLowerCase(), new ActionController());
     }
 
     @Override
@@ -33,6 +34,7 @@ public class FrontController implements Filter {
         } catch (Exception e){
             e.printStackTrace();
         }
+
     }
 
     @Override

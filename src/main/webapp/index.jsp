@@ -14,8 +14,10 @@
         </div>
         <div class="w3-container">
             <h2>Tables:</h2>
-            <input class="w3-btn w3-block w3-black" value="Developer">
-            <input class="w3-btn w3-block w3-red w3-margin" value="Project">
+            <div class="w3-bar w3-border w3-light-grey">
+                <<a href="/itindustry/action?table=developer" class="w3-bar-item w3-button w3-hover-green">Developer</a>
+                <<a href="/itindustry/action?table=project" class="w3-bar-item w3-button w3-hover-red">Project</a>
+            </div>
         </div>
     </div>
 </body>
