@@ -1,9 +1,15 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
-<%@ page import="java.util.List"%>
-<%@ page import="java.util.ArrayList" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: root
+  Date: 08.06.18
+  Time: 0:07
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8"/>
+    <title>Action</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
@@ -15,8 +21,8 @@
         <div class="w3-container">
             <h2>Tables:</h2>
             <div class="w3-bar w3-border w3-light-grey">
-                <a href="/itIndustry/action?table=developers" class="w3-bar-item w3-button w3-hover-green">Developers</a>
-                <a href="/itIndustry/action?table=projects" class="w3-bar-item w3-button w3-hover-red">Projects</a>
+                <a href="/itindustry/crud?command=create" class="w3-bar-item w3-button w3-hover-green">Create</a>
+                <a href="/itindustry/crud?command=list" class="w3-bar-item w3-button w3-hover-red">List</a>
             </div>
         </div>
     </div>

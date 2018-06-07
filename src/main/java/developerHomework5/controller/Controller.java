@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Controller {
     void process(HttpServletRequest httpReq, HttpServletResponse httpResp){
-        System.out.printf("==================================================");
         String method = httpReq.getMethod().toUpperCase();
+        System.out.printf("=================================Debug from Controller method = " + method);
         if (method.equals("GET")){
             handleDoGet(httpReq, httpResp);
         } else if (method.equals("POST")){

@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebFilter("/itIndustry/")
+@WebFilter("/*")
 public class FrontController implements Filter {
 
     Map<String, Controller> requestMap;
@@ -29,6 +29,7 @@ public class FrontController implements Filter {
         httpServletResponse.setCharacterEncoding("UTF-8");
 
         String uri = httpServletRequest.getRequestURI().toLowerCase();
+        System.out.println("================+Debug - from FrontController URI: " + uri);
         try {
             requestMap.get(uri).process(httpServletRequest, httpServletResponse);
         } catch (Exception e){

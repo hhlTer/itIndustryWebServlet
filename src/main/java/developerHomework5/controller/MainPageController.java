@@ -10,7 +10,8 @@ class MainPageController extends Controller {
     @Override
     void handleDoGet(HttpServletRequest httpReq, HttpServletResponse httpResp) {
         try {
-            httpReq.getRequestDispatcher("WEB-INF/index.jsp").forward(httpReq, httpResp);
+            httpReq.getRequestDispatcher("index.jsp").forward(httpReq, httpResp);
+            System.out.println("=============================+Debug from MainPageController");
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
