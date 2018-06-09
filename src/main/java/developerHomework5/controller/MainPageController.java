@@ -1,10 +1,15 @@
 package developerHomework5.controller;
 
+import developerHomework5.model.GenerallyTable;
+import developerHomework5.model.RepositoryTables;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 class MainPageController extends Controller {
     @Override
@@ -21,6 +26,20 @@ class MainPageController extends Controller {
 
     @Override
     void handleDoPost(HttpServletRequest httpReq, HttpServletResponse httpResp) {
-        ServletRequest sr = (ServletRequest) httpReq;
+        try {
+            httpReq.setCharacterEncoding("UTF-8");
+            httpResp.setCharacterEncoding("UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        ServletRequest request = (ServletRequest) httpReq;
+        ServletResponse response = (ServletResponse) httpResp;
+
+        setTable(RepositoryTables.getINSTANCE().getTableMap().get(request.getParameter("table")));
+
+
+        System.out.println("================DEBUG from MainController handleDoPost table: "
+                + httpReq.getParameter("table")
+                + httpReq.getParameter("crud"));
     }
 }

@@ -12,13 +12,35 @@
         <div class="w3-container w3-margin w3-blue">
             <h2>Make you choose</h2>
         </div>
-        <div class="w3-container">
-            <h2>Tables:</h2>
-            <div class="w3-bar w3-border w3-light-grey">
-                <a href="/itIndustry/action?table=developers" class="w3-bar-item w3-button w3-hover-green">Developers</a>
-                <a href="/itIndustry/action?table=projects" class="w3-bar-item w3-button w3-hover-red">Projects</a>
-            </div>
-        </div>
+
+        <form method="post" action="/itIndustry/">
+        <%--<form class="w3-container w3-card-4">--%>
+            <h2>Choose tables</h2>
+            <p>
+                <input class="w3-radio" type="radio" name="table" value="developers" checked>
+                <label>Developers</label></p>
+            <p>
+                <input class="w3-radio" type="radio" name="table" value="projects">
+                <label>Projects</label></p>
+            <p>
+                <input class="w3-radio" type="radio" name="table" value="companies">
+                <label>Companies</label></p>
+        <%--</form>--%>
+        <%--<form class="w3-container w3-card-4">--%>
+            <h2>Choose action</h2>
+            <p>
+                <input class="w3-radio" type="radio" name="crud" value="create" checked>
+                <label>Create</label></p>
+            <p>
+                <input class="w3-radio" type="radio" name="crud" value="getById">
+                <label>Get by id</label></p>
+                <input class="w3-input w3-right" type="text"/>
+            <p>
+                <input class="w3-radio" type="radio" name="crud" value="list">
+                <label>List</label></p>
+        <%--</form>--%>
+            <input type="submit" href="/itIndustry/" class="w3-button w3-black" value="Submit">
+        </form>
     </div>
 </body>
 </html>

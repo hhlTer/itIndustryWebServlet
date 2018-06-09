@@ -31,10 +31,15 @@ public class FrontController implements Filter {
 
         String uri = httpServletRequest.getRequestURI().toLowerCase();
         System.out.println("================+Debug - from FrontController URI: " + uri);
-        try {
-            requestMap.get(uri).process(httpServletRequest, httpServletResponse);
-        } catch (Exception e){
-            e.printStackTrace();
+        if (uri.endsWith(".jsp")){
+            filterChain.doFilter(servletRequest, servletResponse);
+//            servletRequest.getRequestDispatcher(uri).forward(servletRequest, servletResponse);
+        } else {
+            try {
+                requestMap.get(uri).process(httpServletRequest, httpServletResponse);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }
