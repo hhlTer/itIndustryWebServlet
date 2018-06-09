@@ -18,6 +18,7 @@ public class FrontController implements Filter {
         requestMap = new HashMap<>();
         requestMap.put("/itIndustry/".toLowerCase(), new MainPageController());
         requestMap.put("/itIndustry/action".toLowerCase(), new ActionController());
+        requestMap.put("/itIndustry/crud".toLowerCase(), new CrudController());
     }
 
     @Override

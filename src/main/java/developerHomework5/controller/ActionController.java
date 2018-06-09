@@ -15,6 +15,8 @@ public class ActionController extends Controller {
         String tableName = httpReq.getParameter("table").toLowerCase();
         System.out.println("==========================++DEBUG from ActionController: table: " + tableName);
         GenerallyTable table = RepositoryTables.getINSTANCE().getTableMap().get(tableName);
+        setTable(table);
+
         httpReq.setAttribute(table.getTableName(), table);
         try {
             httpReq.getRequestDispatcher("action.jsp").forward(httpReq, httpResp);

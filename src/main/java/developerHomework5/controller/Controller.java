@@ -1,11 +1,15 @@
 package developerHomework5.controller;
 
+import developerHomework5.model.GenerallyTable;
+
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class Controller {
+    private GenerallyTable table;
+
     void process(HttpServletRequest httpReq, HttpServletResponse httpResp){
         String method = httpReq.getMethod().toUpperCase();
         System.out.printf("=================================Debug from Controller method = " + method);
@@ -20,5 +24,12 @@ public class Controller {
     }
 
     void handleDoGet(HttpServletRequest httpReq, HttpServletResponse httpResp) {
+    }
+
+    void setTable(GenerallyTable table) {
+        this.table = table;
+    }
+    GenerallyTable getTable() {
+        return table;
     }
 }
