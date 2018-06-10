@@ -9,6 +9,7 @@ public interface GenerallyTable {
 
     String[] getPrm();
     String getTableName();
+    String[] getAll();
 
     void fillTable(Map<String, String> map);
 }

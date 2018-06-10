@@ -16,43 +16,43 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></head>
 <body>
     <%
+        System.out.println("==========From create.jsp 1");
         GenerallyTable table = (GenerallyTable) request.getAttribute("table");
     %>
     <div class="w3-container w3-grey">
-        <h1>Create <%=table.getTableName().substring(0, table.getTableName().length() - 1)%></h1>
+        <h1>Create <%=table.getTableName()%></h1>
     </div>
     <form class="w3-container w3-light-grey">
         <%
-            for (Map.Entry<String, String> entry:
-                 table.getCortege().entrySet()) {
+            System.out.println("==========From create.jsp 2");
+            String[] fields = table.getPrm();
+            System.out.println("==========From create.jsp 3 + " + fields[3]);
+            for (String entry:
+                 fields) {
+                System.out.println("==========From create.jsp 4 + " + entry);
                 String type = "text";
-                if (entry.getKey().equals("id")){
+                if (entry.equals("id")){
                     continue;
                 }
-                if (entry.getKey().equals("sex")){
+                if (entry.equals("sex")){
                     type = "checkbox";
                 }
+                if (entry.equals("age")){
+                    type = "number";
+                }
                 out.print("<p><label>");
-                out.print(entry.getKey());
+                out.print(entry);
                 out.println("<label>");
-                    if (entry.getKey().equals("sex")){
+                    if (entry.equals("sex")){
 
                     }
                 out.print("<input class=\"w3-input\" ");
-                out.print("name=\"" + entry.getKey() + "\" ");
+                out.print("name=\"" + entry + "\" ");
                 out.print("type=\"" + type + "\"");
                 out.println("</p>");
+                System.out.println("==========From create.jsp 5 + " + entry);
             }
         %>
-        <p>
-            <label>First Name</label>
-            <input class="w3-input" type="text" name="first_name"></p>
-        <p>
-            <label>Last Name</label>
-            <input class="w3-input" type="checkbox"></p>
-        <p>
-            <label>Email</label>
-            <input class="w3-input" type="number"></p>
         <input type="submit" href="/itIndustry/create" class="w3-button w3-black" value="Submit">
     </form>
 </body>
