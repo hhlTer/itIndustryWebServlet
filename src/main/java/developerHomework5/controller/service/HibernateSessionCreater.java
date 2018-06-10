@@ -7,7 +7,7 @@ import org.hibernate.cfg.Configuration;
 public class HibernateSessionCreater {
     private SessionFactory sessionFactory;
 
-    HibernateSessionCreater(){
+    public HibernateSessionCreater(){
         sessionFactory = new Configuration().configure().buildSessionFactory();
     }
 
