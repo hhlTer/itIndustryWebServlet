@@ -73,6 +73,11 @@ public class Skill implements GenerallyTable{
         }
 
     @Override
+    public Map<String, String> getCortege() {
+        return null;
+    }
+
+    @Override
     public String[] getPrm() {
         return getParam();
     }

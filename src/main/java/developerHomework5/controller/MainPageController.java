@@ -35,16 +35,23 @@ class MainPageController extends Controller {
         ServletRequest request = (ServletRequest) httpReq;
         ServletResponse response = (ServletResponse) httpResp;
 
-        String tableName = httpReq.getParameter("table");
+        String tableName = httpReq.getParameter("tableName");
         String command = httpReq.getParameter("crud");
 
         setTable(RepositoryTables.getINSTANCE().getTableMap().get(tableName));
 
+        try {
+            if (command.equals("create")){
+                httpResp.sendRedirect("/itIndustry/create?tableName=" + tableName);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
 
         System.out.println("================DEBUG from MainController handleDoPost table: "
-                + httpReq.getParameter("table")
+                + httpReq.getParameter("tableName")
                 + httpReq.getParameter("crud"));
     }
 }

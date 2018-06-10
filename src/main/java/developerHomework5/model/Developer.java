@@ -3,6 +3,7 @@ package developerHomework5.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -94,6 +95,14 @@ public class Developer implements GenerallyTable{
             String.valueOf(sex),
             String.valueOf(salary)
         };
+    }
+
+    public Map<String, String> getCortege(){
+        Map<String, String> result = new HashMap<>();
+        for (int i = 0; i < getAll().length; i++) {
+            result.put(getParam()[i], getAll()[i]);
+        }
+        return result;
     }
 
     public static String[] getParam() {

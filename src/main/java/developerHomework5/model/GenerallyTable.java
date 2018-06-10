@@ -5,8 +5,8 @@ import java.util.Map;
 
 public interface GenerallyTable {
     Map<String, String> fields = new HashMap<>();
+    Map<String, String> getCortege();
 
-    String[] getAll();
     String[] getPrm();
     String getTableName();
 

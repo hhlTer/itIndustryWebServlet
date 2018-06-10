@@ -17,13 +17,13 @@
         <%--<form class="w3-container w3-card-4">--%>
             <h2>Choose tables</h2>
             <p>
-                <input class="w3-radio" type="radio" name="table" value="developers" checked>
+                <input class="w3-radio" type="radio" name="tableName" value="developers" checked>
                 <label>Developers</label></p>
             <p>
-                <input class="w3-radio" type="radio" name="table" value="projects">
+                <input class="w3-radio" type="radio" name="tableName" value="projects">
                 <label>Projects</label></p>
             <p>
-                <input class="w3-radio" type="radio" name="table" value="companies">
+                <input class="w3-radio" type="radio" name="tableName" value="companies">
                 <label>Companies</label></p>
         <%--</form>--%>
         <%--<form class="w3-container w3-card-4">--%>

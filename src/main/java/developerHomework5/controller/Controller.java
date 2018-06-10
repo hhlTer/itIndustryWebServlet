@@ -12,7 +12,7 @@ public class Controller {
 
     void process(HttpServletRequest httpReq, HttpServletResponse httpResp){
         String method = httpReq.getMethod().toUpperCase();
-        System.out.printf("=================================Debug from Controller method = " + method);
+        System.out.println("=================================Debug from Controller method = " + method);
         if (method.equals("GET")){
             handleDoGet(httpReq, httpResp);
         } else if (method.equals("POST")){

@@ -82,6 +82,11 @@ public class Project implements GenerallyTable{
     }
 
     @Override
+    public Map<String, String> getCortege() {
+        return null;
+    }
+
+    @Override
     public String[] getPrm() {
         return new String[]{
                 "id",
