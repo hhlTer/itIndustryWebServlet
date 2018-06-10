@@ -3,6 +3,7 @@ package developerHomework5.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Map;
 import java.util.Set;
 
 @Table(name = "developers")
@@ -119,5 +120,11 @@ public class Developer implements GenerallyTable{
         return "developers";
     }
 
-
+    public void fillTable(Map<String, String> map){
+        setId(Long.parseLong(map.get("id")));
+        setName(map.get("first_name"));
+        setAge(Integer.parseInt(map.get("age")));
+        setSex(Boolean.parseBoolean(map.get("sex")));
+        setSalary(BigDecimal.valueOf(Long.parseLong("salary")));
+    }
 }

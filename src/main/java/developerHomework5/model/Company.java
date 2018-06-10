@@ -1,6 +1,7 @@
 package developerHomework5.model;
 
 import javax.persistence.*;
+import java.util.Map;
 
 @Entity
 @Table(name = "companies")
@@ -70,5 +71,10 @@ public class Company implements GenerallyTable{
     @Override
     public String getTableName() {
         return "companies";
+    }
+
+    @Override
+    public void fillTable(Map<String, String> map) {
+
     }
 }

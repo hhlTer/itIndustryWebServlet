@@ -13,6 +13,7 @@ public class RepositoryService {
 
     private RepositoryService(){
         register(new HibernateSessionCreater());
+        register(new TableService());
     }
 
     public <T> T getService(Class<T> clazz){

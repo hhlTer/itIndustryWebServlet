@@ -2,6 +2,7 @@ package developerHomework5.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Map;
 import java.util.Set;
 
 @Table(name = "projects")
@@ -93,5 +94,10 @@ public class Project implements GenerallyTable{
     @Override
     public String getTableName() {
         return "projects";
+    }
+
+    @Override
+    public void fillTable(Map<String, String> map) {
+
     }
 }

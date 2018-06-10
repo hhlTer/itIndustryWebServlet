@@ -1,6 +1,7 @@
 package developerHomework5.model;
 
 import javax.persistence.*;
+import java.util.Map;
 import java.util.Set;
 
 @Table(name = "skills")
@@ -79,6 +80,11 @@ public class Skill implements GenerallyTable{
     @Override
     public String getTableName() {
         return "skill";
+    }
+
+    @Override
+    public void fillTable(Map<String, String> map) {
+
     }
 }
 

@@ -35,7 +35,12 @@ class MainPageController extends Controller {
         ServletRequest request = (ServletRequest) httpReq;
         ServletResponse response = (ServletResponse) httpResp;
 
-        setTable(RepositoryTables.getINSTANCE().getTableMap().get(request.getParameter("table")));
+        String tableName = httpReq.getParameter("table");
+        String command = httpReq.getParameter("crud");
+
+        setTable(RepositoryTables.getINSTANCE().getTableMap().get(tableName));
+
+
 
 
         System.out.println("================DEBUG from MainController handleDoPost table: "
