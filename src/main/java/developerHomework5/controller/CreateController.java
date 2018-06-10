@@ -38,23 +38,28 @@ public class CreateController extends Controller {
     void handleDoPost(HttpServletRequest httpReq, HttpServletResponse httpResp) {
         System.out.println("========================from CreateController handleDoPost");
 //        GenerallyTable table = getTable();
-        Developer table = (Developer)getTable();
-        Map<String, String> dataTable = new HashMap<>();
-        System.out.println(table.getPrm());
-        System.out.println("=======PARAMETER======sex: " + httpReq.getParameter("sex"));
-        for (String s:
-             table.getPrm()) {
-            dataTable.put(s, httpReq.getParameter(s));
-        }
-        table.fillTable(dataTable);
-        System.out.println(table.getAll());
+        GenerallyTable table = getTable();
+        fillTable(table, httpReq);
+//        System.out.println(table.getPrm());
+//        System.out.println("=======PARAMETER======sex: " + httpReq.getParameter("sex"));
+
+//        System.out.println(table.getAll());
 
         CrudRepository crudRepository = RepositoryService.getINSTANCE().getService(CrudRepository.class);
-        CrudDaoFactory<Developer, Long> crud = crudRepository.getCrudDaoFactory(Developer.class);
+
+        CrudDaoFactory<GenerallyTable, Long> crud = crudRepository.getCrudDaoFactory(GenerallyTable.class);
         crud.create(table);
 
         //Crud crud = GrudDaoFactory.getMap.get(tableName)
         //crud.create(table);
     }
 
+    private void fillTable(GenerallyTable table, HttpServletRequest request){
+        Map<String, String> dataTable = new HashMap<>();
+        for (String s:
+                table.getPrm()) {
+            dataTable.put(s, request.getParameter(s));
+        }
+        table.fillTable(dataTable);
+    }
 }

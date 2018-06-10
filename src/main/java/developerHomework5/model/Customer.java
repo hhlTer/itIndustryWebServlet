@@ -18,7 +18,6 @@ public class Customer implements GenerallyTable{
 
     @Column(name = "adress")
     private String address;
-
     public void setId(long id) {
         this.id = id;
     }
