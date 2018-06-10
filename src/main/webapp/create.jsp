@@ -16,20 +16,17 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></head>
 <body>
     <%
-        System.out.println("==========From create.jsp 1");
         GenerallyTable table = (GenerallyTable) request.getAttribute("table");
+        String tableName = table.getTableName();
     %>
     <div class="w3-container w3-grey">
-        <h1>Create <%=table.getTableName()%></h1>
+        <h1>Create <%=tableName.substring(0, tableName.length()-1)%></h1>
     </div>
-    <form class="w3-container w3-light-grey">
+    <form class="w3-container w3-light-grey" method="post" action="/itIndustry/create">
         <%
-            System.out.println("==========From create.jsp 2");
             String[] fields = table.getPrm();
-            System.out.println("==========From create.jsp 3 + " + fields[3]);
             for (String entry:
                  fields) {
-                System.out.println("==========From create.jsp 4 + " + entry);
                 String type = "text";
                 if (entry.equals("id")){
                     continue;
@@ -50,10 +47,12 @@
                 out.print("name=\"" + entry + "\" ");
                 out.print("type=\"" + type + "\"");
                 out.println("</p>");
-                System.out.println("==========From create.jsp 5 + " + entry);
             }
         %>
-        <input type="submit" href="/itIndustry/create" class="w3-button w3-black" value="Submit">
+        <%System.out.println("=========================from create.jsp 1");%>
+        <input type="submit" href="/itIndustry/create"
+               class="w3-button w3-black" value="Submit">
+        <%System.out.println("=========================from create.jsp 2");%>
     </form>
 </body>
 </html>

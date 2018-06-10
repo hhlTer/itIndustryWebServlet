@@ -7,7 +7,7 @@
         <property name="connection.characterEncoding">UTF-8</property>
         <property name="connection.characterSetResults">UTF-8</property>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/itIndustry?serverTimezone=UTC;useUnicode=true</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/it_industry?serverTimezone=UTC</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">cttcmy</property>
         <property name="hibernate.connection.pool_size">1</property>

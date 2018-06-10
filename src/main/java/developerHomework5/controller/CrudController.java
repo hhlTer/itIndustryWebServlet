@@ -17,8 +17,5 @@ public class CrudController extends Controller {
         }
 
         httpReq.setAttribute(getTable().getTableName(), getTable());
-
-
-
     }
 }

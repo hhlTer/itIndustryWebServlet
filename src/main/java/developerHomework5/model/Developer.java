@@ -130,10 +130,15 @@ public class Developer implements GenerallyTable{
     }
 
     public void fillTable(Map<String, String> map){
-        setId(Long.parseLong(map.get("id")));
+        if (null != map.get("id")) {
+            setId(Long.parseLong(map.get("id")));
+        }
         setName(map.get("first_name"));
         setAge(Integer.parseInt(map.get("age")));
         setSex(Boolean.parseBoolean(map.get("sex")));
-        setSalary(BigDecimal.valueOf(Long.parseLong("salary")));
+        Long l = Long.parseLong(map.get("salary"));
+        System.out.println(l);
+        BigDecimal bd = new BigDecimal(l);
+        setSalary(bd);
     }
 }

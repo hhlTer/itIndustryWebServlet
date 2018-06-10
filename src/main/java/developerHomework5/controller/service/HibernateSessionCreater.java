@@ -9,6 +9,7 @@ public class HibernateSessionCreater {
 
     public HibernateSessionCreater(){
         sessionFactory = new Configuration().configure().buildSessionFactory();
+        System.out.println("test");
     }
 
     public SessionFactory getSessionFactory() {

@@ -14,6 +14,7 @@ public class RepositoryService {
     private RepositoryService(){
         register(new HibernateSessionCreater());
         register(new TableService());
+        register(new CrudRepository());
     }
 
     public <T> T getService(Class<T> clazz){
