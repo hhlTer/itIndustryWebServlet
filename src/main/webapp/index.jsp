@@ -34,7 +34,7 @@
             <p>
                 <input class="w3-radio" type="radio" name="crud" value="getById">
                 <label>Get by id</label></p>
-                <input class="w3-input w3-right" type="text"/>
+                <input class="w3-input w3-right" type="number" name="id"/>
             <p>
                 <input class="w3-radio" type="radio" name="crud" value="list">
                 <label>List</label></p>

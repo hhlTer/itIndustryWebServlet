@@ -32,26 +32,25 @@ class MainPageController extends Controller {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        ServletRequest request = (ServletRequest) httpReq;
-        ServletResponse response = (ServletResponse) httpResp;
 
         String tableName = httpReq.getParameter("tableName");
         String command = httpReq.getParameter("crud");
+        String id = httpReq.getParameter("id");
 
-        setTable(RepositoryTables.getINSTANCE().getTableMap().get(tableName));
+
+        String url = "/itIndustry/";
+            if (null != command) {
+                if (command.equals("create")) {
+                    url = "/itIndustry/create?tableName=" + tableName;
+                } else if (command.equals("getById")) {
+                    url = "/itIndustry/getById?tableName=" + tableName + "&id=" + id;
+                }
+            }
 
         try {
-            if (command.equals("create")){
-                httpResp.sendRedirect("/itIndustry/create?tableName=" + tableName);
-            }
+            httpResp.sendRedirect(url);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
-        System.out.println("================DEBUG from MainController handleDoPost table: "
-                + httpReq.getParameter("tableName")
-                + httpReq.getParameter("crud"));
     }
 }

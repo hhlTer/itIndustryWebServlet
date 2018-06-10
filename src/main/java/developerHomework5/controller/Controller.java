@@ -1,6 +1,7 @@
 package developerHomework5.controller;
 
 import developerHomework5.model.GenerallyTable;
+import developerHomework5.model.RepositoryTables;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Controller {
     private GenerallyTable table;
+    RepositoryTables repositoryTables = RepositoryTables.getINSTANCE();
+
 
     void process(HttpServletRequest httpReq, HttpServletResponse httpResp){
         String method = httpReq.getMethod().toUpperCase();
@@ -31,5 +34,10 @@ public class Controller {
     }
     GenerallyTable getTable() {
         return table;
+    }
+
+    void tableGenerate(HttpServletRequest request){
+        String tableName = request.getParameter("tableName");
+        setTable(repositoryTables.getTableMap().get(tableName));
     }
 }

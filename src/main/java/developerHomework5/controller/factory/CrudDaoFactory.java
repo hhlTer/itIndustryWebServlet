@@ -5,6 +5,8 @@ import developerHomework5.controller.service.RepositoryService;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import java.io.Serializable;
+
 public class CrudDaoFactory<T, K> {
     private Class<T> clazz;
     private SessionFactory sessionFactory;
@@ -20,6 +22,13 @@ public class CrudDaoFactory<T, K> {
         Session session = openTrancatSession();
         session.save(t);
         closeTrancatSession(session);
+    }
+
+    public T getById(K k){
+        Session session = openSession();
+        T result = session.get(clazz, (Serializable) k);
+        session.close();
+        return result;
     }
 
     private Session openSession(){
