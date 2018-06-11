@@ -21,6 +21,8 @@ public class FrontController implements Filter {
         requestMap.put("/itIndustry/crud".toLowerCase(), new CrudController());
         requestMap.put("/itIndustry/create".toLowerCase(), new CreateController());
         requestMap.put("/itIndustry/getById".toLowerCase(), new ReadByIdController());
+        requestMap.put("/itIndustry/update".toLowerCase(), new UpdateController());
+        requestMap.put("/itIndustry/list".toLowerCase(), new ListController());
     }
 
     @Override

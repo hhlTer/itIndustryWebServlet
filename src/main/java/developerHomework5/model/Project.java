@@ -2,6 +2,7 @@ package developerHomework5.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -83,7 +84,13 @@ public class Project implements GenerallyTable{
 
     @Override
     public Map<String, String> getCortege() {
-        return null;
+        String[] fields = getParam();
+        String[] data = getAll();
+        Map<String, String> result = new HashMap<>();
+        for (int i = 0; i < fields.length; i++) {
+            result.put(fields[i], data[i]);
+        }
+        return result;
     }
 
     @Override
@@ -103,6 +110,14 @@ public class Project implements GenerallyTable{
 
     @Override
     public void fillTable(Map<String, String> map) {
-
+        if (null != map.get("id")) {
+            setId(Long.parseLong(map.get("id")));
+        }
+        setProject_name(map.get("project_name"));
+        setDescription(map.get("description"));
+        Long l = Long.parseLong(map.get("cost"));
+        System.out.println(l);
+        BigDecimal bd = new BigDecimal(l);
+        setCost(bd);
     }
 }

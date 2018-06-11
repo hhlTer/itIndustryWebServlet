@@ -24,9 +24,6 @@ public class CreateController extends Controller {
 //         */
         tableGenerate(httpReq);
         httpReq.setAttribute("table", getTable());
-//        String tableName = httpReq.getParameter("tableName");
-//        setTable(repositoryTables.getTableMap().get(tableName));
-//        httpReq.setAttribute("table", getTable());
 
         try {
             httpReq.getRequestDispatcher("create.jsp").forward(httpReq, httpResp);

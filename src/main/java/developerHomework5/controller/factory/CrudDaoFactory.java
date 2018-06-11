@@ -4,8 +4,14 @@ import developerHomework5.controller.service.HibernateSessionCreater;
 import developerHomework5.controller.service.RepositoryService;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CrudDaoFactory<T, K> {
     private Class<T> clazz;
@@ -29,6 +35,16 @@ public class CrudDaoFactory<T, K> {
         T result = session.get(clazz, (Serializable) k);
         session.close();
         return result;
+    }
+
+    public List<T> getList(){
+        Session session = openSession();
+        CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+        CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery((Class<T>) clazz);
+        Root<T> root = criteriaQuery.from((Class<T>)clazz);
+        criteriaQuery.select(root);
+        Query<T> query = session.createQuery(criteriaQuery);
+        return (List<T>) query.getResultList();
     }
 
     private Session openSession(){

@@ -44,6 +44,10 @@ class MainPageController extends Controller {
                     url = "/itIndustry/create?tableName=" + tableName;
                 } else if (command.equals("getById")) {
                     url = "/itIndustry/getById?tableName=" + tableName + "&id=" + id;
+                } else if (command.equals("update")){
+                    url = "/itIndustry/update?tableName=" + tableName;
+                } else if (command.equals("list")){
+                    url = "/itIndustry/list?tableName=" + tableName;
                 }
             }
 
