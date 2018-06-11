@@ -11,10 +11,12 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Controller {
+class Controller {
     private GenerallyTable table;
-    RepositoryTables repositoryTables = RepositoryTables.getINSTANCE();
+    private RepositoryTables repositoryTables = RepositoryTables.getINSTANCE();
     CrudRepository crudRepository = RepositoryService.getINSTANCE().getService(CrudRepository.class);
 
     void process(HttpServletRequest httpReq, HttpServletResponse httpResp){
@@ -25,9 +27,7 @@ public class Controller {
         } else if (method.equals("POST")){
             try {
                 handleDoPost(httpReq, httpResp);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
+            } catch (ServletException | IOException e) {
                 e.printStackTrace();
             }
         }
@@ -49,5 +49,13 @@ public class Controller {
     void tableGenerate(HttpServletRequest request){
         String tableName = request.getParameter("tableName");
         setTable(repositoryTables.getTableMap().get(tableName));
+    }
+    void fillTable(GenerallyTable table, HttpServletRequest request){
+        Map<String, String> dataTable = new HashMap<>();
+        for (String s:
+                table.getPrm()) {
+            dataTable.put(s, request.getParameter(s));
+        }
+        table.fillTable(dataTable);
     }
 }

@@ -47,13 +47,4 @@ public class CreateController extends Controller {
             e.printStackTrace();
         }
     }
-
-    private void fillTable(GenerallyTable table, HttpServletRequest request){
-        Map<String, String> dataTable = new HashMap<>();
-        for (String s:
-                table.getPrm()) {
-            dataTable.put(s, request.getParameter(s));
-        }
-        table.fillTable(dataTable);
-    }
 }

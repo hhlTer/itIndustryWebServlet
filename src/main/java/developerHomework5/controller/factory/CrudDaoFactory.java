@@ -40,11 +40,17 @@ public class CrudDaoFactory<T, K> {
     public List<T> getList(){
         Session session = openSession();
         CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
-        CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery((Class<T>) clazz);
-        Root<T> root = criteriaQuery.from((Class<T>)clazz);
+        CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(clazz);
+        Root<T> root = criteriaQuery.from(clazz);
         criteriaQuery.select(root);
         Query<T> query = session.createQuery(criteriaQuery);
-        return (List<T>) query.getResultList();
+        return query.getResultList();
+    }
+
+    public void update(T t){
+        Session session = openTrancatSession();
+        session.update(t);
+        closeTrancatSession(session);
     }
 
     private Session openSession(){

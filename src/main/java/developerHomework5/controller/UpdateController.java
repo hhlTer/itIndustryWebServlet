@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class UpdateController extends Controller {
+class UpdateController extends Controller {
     @Override
     void handleDoGet(HttpServletRequest httpReq, HttpServletResponse httpResp) {
         tableGenerate(httpReq);
@@ -20,14 +20,22 @@ public class UpdateController extends Controller {
         httpReq.setAttribute("table", table);
         try {
             httpReq.getRequestDispatcher("update.jsp").forward(httpReq, httpResp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
     }
 
     @Override
     void handleDoPost(HttpServletRequest httpReq, HttpServletResponse httpResp){
+        GenerallyTable table = getTable();
+        fillTable(table, httpReq);
+
+        CrudDaoFactory<GenerallyTable, Long> daoFactory = crudRepository.getCrudDaoFactory(table.getClass());
+        daoFactory.update(table);
+        try {
+            httpResp.sendRedirect("/itIndustry/");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
