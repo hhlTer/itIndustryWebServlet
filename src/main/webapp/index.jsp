@@ -32,15 +32,18 @@
                 <input class="w3-radio" type="radio" name="crud" value="create" checked>
                 <label>Create</label></p>
             <p>
-                <input class="w3-radio" type="radio" name="crud" value="getById">
-                <label>Get by id</label></p>
-                <input class="w3-input w3-right" type="number" name="id"/>
-            <p>
                 <input class="w3-radio" type="radio" name="crud" value="list">
                 <label>List</label></p>
             <p>
-                <input class="w3-radio" type="radio" name="crud" value="update">
-                <label>Update</label></p>
+                <input class="w3-radio" type="radio" name="crud" value="getById">
+                <label>Get by id</label>
+                <input class="w3-input w3-right" type="number" name="id"/>
+            </p>
+            <p>
+            <input class="w3-radio" type="radio" name="crud" value="update">
+                <label>Update</label>
+                <input class="w3-input w3-right" type="number" name="idUpdate"/>
+            </p>
         <%--</form>--%>
             <input type="submit" href="/itIndustry/" class="w3-button w3-black" value="Submit">
         </form>

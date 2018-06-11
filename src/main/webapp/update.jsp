@@ -1,4 +1,5 @@
-<%@ page import="developerHomework5.model.GenerallyTable" %><%--
+<%@ page import="developerHomework5.model.GenerallyTable" %>
+<%@ page import="java.util.Map" %><%--
   Created by IntelliJ IDEA.
   User: valeriy
   Date: 10.06.18
@@ -24,6 +25,7 @@
 <form class="w3-container w3-light-grey" method="post" action="/itIndustry/create">
     <%
         String[] fields = table.getPrm();
+        Map<String, String> mapSS = table.getCortege();
         for (String entry:
                 fields) {
             String type = "text";
@@ -43,6 +45,7 @@
             out.print("<input class=\"w3-input\" ");
             out.print("name=\"" + entry + "\" ");
             out.print("type=\"" + type + "\"");
+            out.print("placeholder=\"" + mapSS.get(entry) + "\">");
             out.println("</p>");
         }
     %>

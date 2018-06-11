@@ -36,7 +36,7 @@ class MainPageController extends Controller {
         String tableName = httpReq.getParameter("tableName");
         String command = httpReq.getParameter("crud");
         String id = httpReq.getParameter("id");
-
+        String idUpdate = httpReq.getParameter("idUpdate");
 
         String url = "/itIndustry/";
             if (null != command) {
@@ -45,7 +45,7 @@ class MainPageController extends Controller {
                 } else if (command.equals("getById")) {
                     url = "/itIndustry/getById?tableName=" + tableName + "&id=" + id;
                 } else if (command.equals("update")){
-                    url = "/itIndustry/update?tableName=" + tableName;
+                    url = "/itIndustry/update?tableName=" + tableName + "&idUpdate=" + idUpdate;
                 } else if (command.equals("list")){
                     url = "/itIndustry/list?tableName=" + tableName;
                 }
