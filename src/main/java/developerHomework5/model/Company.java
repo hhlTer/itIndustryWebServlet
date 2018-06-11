@@ -78,7 +78,9 @@ public class Company extends MTable implements GenerallyTable{
 
     @Override
     public void fillTable(Map<String, String> map) {
-        setId(Long.parseLong(map.get("id")));
+        if (null != map.get("id")) {
+            setId(Long.parseLong(map.get("id")));
+        }
         setCompany_name(map.get("company_name"));
         setAdress(map.get("adress"));
     }

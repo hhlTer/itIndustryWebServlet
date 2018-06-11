@@ -19,7 +19,6 @@ public class CrudDaoFactory<T, K> {
 
     public CrudDaoFactory(Class initClazz){
         this.clazz = initClazz;
-//        HibernateSessionCreater sessionCreater = RepositoryService.getINSTANCE().getService(HibernateSessionCreater.class);
         HibernateSessionCreater sessionCreater = new HibernateSessionCreater();
         sessionFactory = sessionCreater.getSessionFactory();
     }

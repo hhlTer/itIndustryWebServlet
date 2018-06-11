@@ -92,7 +92,9 @@ class Skill implements GenerallyTable{
 
     @Override
     public void fillTable(Map<String, String> map) {
-        setId(Long.parseLong(map.get("id")));
+        if (null != map.get("id")) {
+            setId(Long.parseLong(map.get("id")));
+        }
         setGrade(map.get("grade"));
         setSkills(map.get("skill"));
     }

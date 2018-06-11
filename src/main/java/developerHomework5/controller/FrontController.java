@@ -17,8 +17,6 @@ public class FrontController implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
         requestMap = new HashMap<>();
         requestMap.put("/itIndustry/".toLowerCase(), new MainPageController());
-        requestMap.put("/itIndustry/action".toLowerCase(), new ActionController());
-        requestMap.put("/itIndustry/crud".toLowerCase(), new CrudController());
         requestMap.put("/itIndustry/create".toLowerCase(), new CreateController());
         requestMap.put("/itIndustry/getById".toLowerCase(), new ReadByIdController());
         requestMap.put("/itIndustry/update".toLowerCase(), new UpdateController());

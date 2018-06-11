@@ -22,7 +22,7 @@
 <div class="w3-container w3-grey">
     <h1>Create <%=tableName.substring(0, tableName.length()-1)%></h1>
 </div>
-<form class="w3-container w3-light-grey" method="post" action="/itIndustry/create">
+<form class="w3-container w3-light-grey" method="post" action="/itIndustry/update">
     <%
         String[] fields = table.getPrm();
         Map<String, String> mapSS = table.getCortege();
@@ -50,7 +50,7 @@
         }
     %>
     <%System.out.println("=========================from update.jsp 1");%>
-    <input type="submit" href="/itIndustry/create"
+    <input type="submit" href="/itIndustry/update"
            class="w3-button w3-black" value="Submit">
     <%System.out.println("=========================from update.jsp 2");%>
 </form>

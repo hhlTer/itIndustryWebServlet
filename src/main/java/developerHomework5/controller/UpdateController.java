@@ -9,14 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 class UpdateController extends Controller {
+    GenerallyTable table;
     @Override
     void handleDoGet(HttpServletRequest httpReq, HttpServletResponse httpResp) {
         tableGenerate(httpReq);
         httpReq.setAttribute("table", getTable());
         CrudDaoFactory<GenerallyTable, Long> daoFactory = crudRepository.getCrudDaoFactory(getTable().getClass());
         Long id = Long.parseLong(httpReq.getParameter("idUpdate"));
-        GenerallyTable table = daoFactory.getById(id);
 
+        table = daoFactory.getById(id);
         httpReq.setAttribute("table", table);
 
         try {
@@ -28,7 +29,7 @@ class UpdateController extends Controller {
 
     @Override
     void handleDoPost(HttpServletRequest httpReq, HttpServletResponse httpResp){
-        GenerallyTable table = getTable();
+//        GenerallyTable table = getTable();
         fillTable(table, httpReq);
 
         CrudDaoFactory<GenerallyTable, Long> daoFactory = crudRepository.getCrudDaoFactory(table.getClass());

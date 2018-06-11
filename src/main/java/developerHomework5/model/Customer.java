@@ -75,7 +75,9 @@ public class Customer extends MTable implements GenerallyTable{
 
     @Override
     public void fillTable(Map<String, String> map) {
-        setId(Long.parseLong(map.get("id")));
+        if (null != map.get("id")) {
+            setId(Long.parseLong(map.get("id")));
+        }
         setAddress(map.get("adress"));
         setCustomer_name(map.get("customer_name"));
     }
