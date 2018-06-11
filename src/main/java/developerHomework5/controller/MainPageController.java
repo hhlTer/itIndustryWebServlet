@@ -16,10 +16,7 @@ class MainPageController extends Controller {
     void handleDoGet(HttpServletRequest httpReq, HttpServletResponse httpResp) {
         try {
             httpReq.getRequestDispatcher("index.jsp").forward(httpReq, httpResp);
-            System.out.println("=============================+Debug from MainPageController");
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -37,6 +34,7 @@ class MainPageController extends Controller {
         String command = httpReq.getParameter("crud");
         String id = httpReq.getParameter("id");
         String idUpdate = httpReq.getParameter("idUpdate");
+        String idDelete = httpReq.getParameter("idDelete");
 
         String url = "/itIndustry/";
             if (null != command) {
@@ -48,6 +46,8 @@ class MainPageController extends Controller {
                     url = "/itIndustry/update?tableName=" + tableName + "&idUpdate=" + idUpdate;
                 } else if (command.equals("list")){
                     url = "/itIndustry/list?tableName=" + tableName;
+                } else if (command.equals("delete")){
+                    url = "/itIndustry/delete?tableName=" + tableName + "&idDelete=" + idDelete;
                 }
             }
 

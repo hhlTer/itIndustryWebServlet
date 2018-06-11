@@ -1,11 +1,12 @@
 package developerHomework5.model;
 
 import javax.persistence.*;
+import java.util.HashMap;
 import java.util.Map;
 
 @Entity
 @Table(name = "companies")
-public class Company implements GenerallyTable{
+public class Company extends MTable implements GenerallyTable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,10 +60,7 @@ public class Company implements GenerallyTable{
         };
     }
 
-    @Override
-    public Map<String, String> getCortege() {
-        return null;
-    }
+
 
     @Override
     public String[] getPrm() {
@@ -80,6 +78,8 @@ public class Company implements GenerallyTable{
 
     @Override
     public void fillTable(Map<String, String> map) {
-
+        setId(Long.parseLong(map.get("id")));
+        setCompany_name(map.get("company_name"));
+        setAdress(map.get("adress"));
     }
 }

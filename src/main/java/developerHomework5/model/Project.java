@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Table(name = "projects")
 @Entity
-public class Project implements GenerallyTable{
+public class Project extends MTable implements GenerallyTable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -80,17 +80,6 @@ public class Project implements GenerallyTable{
             description,
             String.valueOf(cost)
         };
-    }
-
-    @Override
-    public Map<String, String> getCortege() {
-        String[] fields = getParam();
-        String[] data = getAll();
-        Map<String, String> result = new HashMap<>();
-        for (int i = 0; i < fields.length; i++) {
-            result.put(fields[i], data[i]);
-        }
-        return result;
     }
 
     @Override

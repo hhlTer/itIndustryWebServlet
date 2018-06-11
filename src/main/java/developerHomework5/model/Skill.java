@@ -1,12 +1,13 @@
 package developerHomework5.model;
 
 import javax.persistence.*;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 @Table(name = "skills")
 @Entity
-public class Skill implements GenerallyTable{
+class Skill implements GenerallyTable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,14 +57,6 @@ public class Skill implements GenerallyTable{
             return String.format("id :%d\nTypeSkill: %s\nGrade: %s\n", id, skills, grade);
         }
 
-        public static String[] getParam() {
-            return new String[]{
-                    "id",
-                    "skill",
-                    "grade",
-            };
-        }
-
         public String[] getAll(){
             return new String[]{
                 String.valueOf(id),
@@ -73,13 +66,23 @@ public class Skill implements GenerallyTable{
         }
 
     @Override
-    public Map<String, String> getCortege() {
-        return null;
+    public Map<String, String> getCortege(){
+        String[] fields = getPrm();
+        String[] data = getAll();
+        Map<String, String> result = new HashMap<>();
+        for (int i = 0; i < fields.length; i++) {
+            result.put(fields[i], data[i]);
+        }
+        return result;
     }
 
     @Override
     public String[] getPrm() {
-        return getParam();
+        return new String[]{
+                "id",
+                "skill",
+                "grade",
+        };
     }
 
     @Override
@@ -89,7 +92,9 @@ public class Skill implements GenerallyTable{
 
     @Override
     public void fillTable(Map<String, String> map) {
-
+        setId(Long.parseLong(map.get("id")));
+        setGrade(map.get("grade"));
+        setSkills(map.get("skill"));
     }
 }
 

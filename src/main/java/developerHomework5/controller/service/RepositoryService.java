@@ -13,7 +13,7 @@ public class RepositoryService {
 
     private RepositoryService(){
         register(new HibernateSessionCreater());
-        register(new TableService());
+//        register(new TableService());
         register(new CrudRepository());
     }
 

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class ActionController extends Controller {
+class ActionController extends Controller {
     @Override
     void handleDoGet(HttpServletRequest httpReq, HttpServletResponse httpResp) {
         System.out.println("============================++DEBUG from ActionController: table: ");
@@ -18,11 +18,10 @@ public class ActionController extends Controller {
         setTable(table);
 
         httpReq.setAttribute(table.getTableName(), table);
+
         try {
             httpReq.getRequestDispatcher("action.jsp").forward(httpReq, httpResp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException |IOException e) {
             e.printStackTrace();
         }
 

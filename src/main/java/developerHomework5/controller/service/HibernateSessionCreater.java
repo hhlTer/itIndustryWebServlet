@@ -1,6 +1,5 @@
 package developerHomework5.controller.service;
 
-import com.fasterxml.classmate.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -18,7 +17,6 @@ public class HibernateSessionCreater {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        sessionFactory =  new Configuration().configure().buildSessionFactory();
         System.out.println("test");
     }
 

@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 
-public class CrudController extends Controller {
+class CrudController extends Controller {
     @Override
     void handleDoGet(HttpServletRequest httpReq, HttpServletResponse httpResp) {
         try {
@@ -15,7 +15,6 @@ public class CrudController extends Controller {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-
         httpReq.setAttribute(getTable().getTableName(), getTable());
     }
 }

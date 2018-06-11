@@ -18,6 +18,7 @@ class UpdateController extends Controller {
         GenerallyTable table = daoFactory.getById(id);
 
         httpReq.setAttribute("table", table);
+
         try {
             httpReq.getRequestDispatcher("update.jsp").forward(httpReq, httpResp);
         } catch (ServletException | IOException e) {

@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadByIdController extends Controller {
+class ReadByIdController extends Controller {
     @Override
     void handleDoGet(HttpServletRequest httpReq, HttpServletResponse httpResp) {
         tableGenerate(httpReq);
@@ -20,7 +20,6 @@ public class ReadByIdController extends Controller {
 
         Long id = Long.parseLong(httpReq.getParameter("id"));
         CrudDaoFactory<GenerallyTable, Long> daoFactory = crudRepository.getCrudDaoFactory(table.getClass());
-
         table = daoFactory.getById(id);
         List<GenerallyTable> tableList = new ArrayList<>();
         tableList.add(table);

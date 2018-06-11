@@ -15,6 +15,8 @@ public class RepositoryTables {
     private RepositoryTables(){
         register(new Project());
         register(new Developer());
+        register(new Company());
+        register(new Customer());
     }
 
     private void register(GenerallyTable gt) {

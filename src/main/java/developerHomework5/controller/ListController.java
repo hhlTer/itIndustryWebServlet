@@ -11,12 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class ListController extends Controller {
+class ListController extends Controller {
     @Override
     void handleDoGet(HttpServletRequest httpReq, HttpServletResponse httpResp) {
         tableGenerate(httpReq);
         GenerallyTable table = getTable();
-
         CrudDaoFactory<GenerallyTable, Long> daoFactory = crudRepository.getCrudDaoFactory(table.getClass());
 
         List<GenerallyTable> tableList = daoFactory.getList();
@@ -25,9 +24,7 @@ public class ListController extends Controller {
 
         try {
             httpReq.getRequestDispatcher("readById.jsp").forward(httpReq, httpResp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
     }

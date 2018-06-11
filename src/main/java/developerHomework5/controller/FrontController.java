@@ -11,7 +11,7 @@ import java.util.Map;
 @WebFilter("/*")
 public class FrontController implements Filter {
 
-    Map<String, Controller> requestMap;
+    private Map<String, Controller> requestMap;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -23,6 +23,7 @@ public class FrontController implements Filter {
         requestMap.put("/itIndustry/getById".toLowerCase(), new ReadByIdController());
         requestMap.put("/itIndustry/update".toLowerCase(), new UpdateController());
         requestMap.put("/itIndustry/list".toLowerCase(), new ListController());
+        requestMap.put("/itIndustry/delete".toLowerCase(), new DeleteController());
     }
 
     @Override

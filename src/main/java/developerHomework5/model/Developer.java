@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Table(name = "developers")
 @Entity
-public class Developer implements GenerallyTable{
+public class Developer extends MTable implements GenerallyTable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -95,14 +95,6 @@ public class Developer implements GenerallyTable{
             String.valueOf(sex),
             String.valueOf(salary)
         };
-    }
-
-    public Map<String, String> getCortege(){
-        Map<String, String> result = new HashMap<>();
-        for (int i = 0; i < getAll().length; i++) {
-            result.put(getParam()[i], getAll()[i]);
-        }
-        return result;
     }
 
     public static String[] getParam() {

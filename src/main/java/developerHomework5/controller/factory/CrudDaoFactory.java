@@ -53,6 +53,12 @@ public class CrudDaoFactory<T, K> {
         closeTrancatSession(session);
     }
 
+    public void delete(T t){
+        Session session = openTrancatSession();
+        session.delete(t);
+        closeTrancatSession(session);
+    }
+
     private Session openSession(){
         return sessionFactory.openSession();
     }

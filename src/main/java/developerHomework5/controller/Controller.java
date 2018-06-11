@@ -58,4 +58,5 @@ class Controller {
         }
         table.fillTable(dataTable);
     }
+
 }

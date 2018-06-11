@@ -13,8 +13,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CreateController extends Controller {
-//    GenerallyTable table;
+ class CreateController extends Controller {
 
     @Override
     void handleDoGet(HttpServletRequest httpReq, HttpServletResponse httpResp) {
@@ -24,7 +23,6 @@ public class CreateController extends Controller {
 //         */
         tableGenerate(httpReq);
         httpReq.setAttribute("table", getTable());
-
         try {
             httpReq.getRequestDispatcher("create.jsp").forward(httpReq, httpResp);
         } catch (ServletException | IOException e) {
